@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TankShooter.CSharp", "TankShooter.CSharp.csproj", "{81683188-92DD-3780-EB11-0724A1ED871C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TankShooter.CSharp.Editor", "TankShooter.CSharp.Editor.csproj", "{5A6B34AB-506E-1EB7-7F94-A954BF9B3853}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81683188-92DD-3780-EB11-0724A1ED871C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81683188-92DD-3780-EB11-0724A1ED871C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81683188-92DD-3780-EB11-0724A1ED871C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81683188-92DD-3780-EB11-0724A1ED871C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A6B34AB-506E-1EB7-7F94-A954BF9B3853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A6B34AB-506E-1EB7-7F94-A954BF9B3853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A6B34AB-506E-1EB7-7F94-A954BF9B3853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A6B34AB-506E-1EB7-7F94-A954BF9B3853}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
