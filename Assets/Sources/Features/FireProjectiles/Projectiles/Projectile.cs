@@ -15,7 +15,7 @@ public abstract class Projectile
         var e = pool.CreateEntity()
             .AddResource(_resource)
             .AddPosition(position)
-            .AddMovable(Vector2.zero, power);
+            .AddMovable(Vector2.zero, new Vector2(2f,1f),power);
         if (_damage != 0)
             e.AddDamageable(_damage);
         if (_isFriendly)

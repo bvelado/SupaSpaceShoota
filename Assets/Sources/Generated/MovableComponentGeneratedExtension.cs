@@ -12,16 +12,18 @@ namespace Entitas {
 
         public bool hasMovable { get { return HasComponent(ComponentIds.Movable); } }
 
-        public Entity AddMovable(UnityEngine.Vector2 newVelocity, UnityEngine.Vector2 newAcceleration) {
+        public Entity AddMovable(UnityEngine.Vector2 newVelocity, UnityEngine.Vector2 newMaxVelocity, UnityEngine.Vector2 newAcceleration) {
             var component = CreateComponent<MovableComponent>(ComponentIds.Movable);
             component.velocity = newVelocity;
+            component.maxVelocity = newMaxVelocity;
             component.acceleration = newAcceleration;
             return AddComponent(ComponentIds.Movable, component);
         }
 
-        public Entity ReplaceMovable(UnityEngine.Vector2 newVelocity, UnityEngine.Vector2 newAcceleration) {
+        public Entity ReplaceMovable(UnityEngine.Vector2 newVelocity, UnityEngine.Vector2 newMaxVelocity, UnityEngine.Vector2 newAcceleration) {
             var component = CreateComponent<MovableComponent>(ComponentIds.Movable);
             component.velocity = newVelocity;
+            component.maxVelocity = newMaxVelocity;
             component.acceleration = newAcceleration;
             ReplaceComponent(ComponentIds.Movable, component);
             return this;

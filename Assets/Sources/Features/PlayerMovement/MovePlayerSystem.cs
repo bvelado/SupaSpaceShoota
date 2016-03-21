@@ -22,7 +22,7 @@ public class MovePlayerSystem : IReactiveSystem
                 Entity playerEntity = e.input.data[0] as Entity;
                 if (playerEntity.isPlayer && playerEntity.hasPosition && playerEntity.hasMovable)
                 {
-                    playerEntity.movable.acceleration = ((Vector3)e.input.data[1]);
+                    playerEntity.movable.acceleration = ((Vector2)e.input.data[1]);
                 }
 
                 e.IsDestroy(true);

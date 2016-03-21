@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class InputController : MonoBehaviour {
-    Vector3 movementInput;
+    Vector2 movementInput;
 
     void Start()
     {
@@ -15,8 +15,8 @@ public class InputController : MonoBehaviour {
             Pools.pool.CreateEntity().AddInput(InputIntent.Fire, new object[] { Pools.pool.playerEntity });
         }
 
-        movementInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        if (movementInput != Vector3.zero)
-            Pools.pool.CreateEntity().AddInput(InputIntent.Move, new object[] { Pools.pool.playerEntity, movementInput*0.01f });
+        movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (movementInput != Vector2.zero)
+            Pools.pool.CreateEntity().AddInput(InputIntent.Move, new object[] { Pools.pool.playerEntity, movementInput });
 	}
 }

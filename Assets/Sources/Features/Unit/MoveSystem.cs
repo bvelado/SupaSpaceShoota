@@ -17,23 +17,23 @@ public class MoveSystem : IExecuteSystem, ISetPool
     {
         foreach (var e in _movableEntities.GetEntities())
         {
-            e.movable.velocity += e.movable.acceleration;
+            if (e.movable.acceleration != Vector2.zero)
+            {
+                if (e.movable.acceleration.x + e.movable.velocity.x > e.movable.maxVelocity.x || e.movable.acceleration.x + e.movable.velocity.x < -e.movable.maxVelocity.x)
+                    e.movable.velocity.x = Mathf.Sign(e.movable.velocity.x + e.movable.acceleration.x) * e.movable.maxVelocity.x;
+                else
+                    e.movable.velocity.x += e.movable.acceleration.x;
 
-            if (Mathf.Abs(e.movable.acceleration.x) <_minPlayerVelocity && Mathf.Abs(e.movable.acceleration.y) < _minPlayerVelocity && (velocityTween == null || !velocityTween.IsPlaying()))
-            {
-                Debug.Log("Playing deccelerate tween");
-                velocityTween = DOTween.To(() => e.movable.velocity, x => e.movable.velocity = x, Vector2.zero, 0.012f );
-                velocityTween.Play();
-            } else
-            {
-                velocityTween.Kill();
+                if (e.movable.acceleration.y + e.movable.velocity.y > e.movable.maxVelocity.y || e.movable.acceleration.y + e.movable.velocity.y < -e.movable.maxVelocity.y)
+                    e.movable.velocity.y = Mathf.Sign(e.movable.velocity.y + e.movable.acceleration.y) * e.movable.maxVelocity.y;
+                else
+                    e.movable.velocity.y += e.movable.acceleration.y;
             }
-
+            
+            e.movable.velocity = Vector2.Lerp(e.movable.velocity, e.movable.acceleration, Time.smoothDeltaTime*10.0f);
+            
             e.position.coordinates += e.movable.velocity;
-            e.view.model.transform.position = e.position.coordinates;
-
-            if (e.isPlayer && e.movable.velocity.magnitude > _maxPlayerVelocity)
-                e.movable.velocity = e.movable.velocity.normalized* _maxPlayerVelocity;
+            e.view.model.transform.Translate(e.movable.velocity);
 
             e.movable.acceleration = Vector2.zero;
         }

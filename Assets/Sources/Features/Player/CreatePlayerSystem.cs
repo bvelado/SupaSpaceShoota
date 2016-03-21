@@ -12,7 +12,7 @@ public class CreatePlayerSystem : IInitializeSystem, ISetPool
             .IsPlayer(true)
             .AddResource("Prefabs/Player")
             .AddPosition(Vector2.zero)
-            .AddMovable(Vector2.zero, Vector2.zero);
+            .AddMovable(Vector2.zero, new Vector2(0.3f,0.1f), Vector2.zero);
     }
 
     public void SetPool(Pool pool)
